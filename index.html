@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Tarot - Мистические расклады карт Таро</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+    <!-- Flying Tarot Cards Background -->
+    <div class="flying-tarot-card flying-card-1"></div>
+    <div class="flying-tarot-card flying-card-2"></div>
+    <div class="flying-tarot-card flying-card-3"></div>
+    <div class="flying-tarot-card flying-card-4"></div>
+    <div class="flying-tarot-card flying-card-5"></div>
+    
+    <!-- Floating Background Cards -->
+    <div class="floating-background-card" style="top: 15%; left: 5%; animation-delay: 0s;"></div>
+    <div class="floating-background-card" style="top: 25%; right: 8%; animation-delay: 2s;"></div>
+    <div class="floating-background-card" style="top: 45%; left: 10%; animation-delay: 4s;"></div>
+    <div class="floating-background-card" style="top: 65%; right: 15%; animation-delay: 6s;"></div>
+    <div class="floating-background-card" style="top: 85%; left: 20%; animation-delay: 8s;"></div>
+    <div class="floating-background-card" style="top: 35%; right: 25%; animation-delay: 3s;"></div>
+
+    <!-- Navigation -->
+    <!-- Добавляем app-like навигацию для мобильных -->
+    <nav class="fixed top-0 w-full z-50 bg-black/95 backdrop-blur-sm border-b border-rose-900/30 mobile-app-nav">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-xl md:text-2xl font-bold text-rose-500 cinzel-font">
+                    👻 Ghost Tarot
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="hover:text-rose-400 transition-colors">О Таро</a>
+                    <a href="#services" class="hover:text-rose-400 transition-colors">Расклады</a>
+                    <a href="#reviews" class="hover:text-rose-400 transition-colors">Отзывы</a>
+                    <a href="#contact" class="hover:text-rose-400 transition-colors">Связь</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-rose-400 p-2 rounded-lg hover:bg-rose-900/20 transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <!-- Улучшенное мобильное меню в стиле приложения -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-black/98 z-40 hidden mobile-app-menu">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-between items-center p-4 border-b border-rose-900/30">
+                <div class="text-xl font-bold text-rose-500 cinzel-font">👻 Ghost Tarot</div>
+                <button id="mobile-menu-close" class="text-rose-400 p-2 rounded-lg hover:bg-rose-900/20">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex-1 flex flex-col justify-center space-y-8 px-8">
+                <a href="#about" class="mobile-menu-item flex items-center space-x-4 p-4 rounded-xl hover:bg-rose-900/20 transition-all mobile-menu-link">
+                    <span class="text-2xl">🔮</span>
+                    <span class="text-xl">О Таро</span>
+                </a>
+                <a href="#services" class="mobile-menu-item flex items-center space-x-4 p-4 rounded-xl hover:bg-rose-900/20 transition-all mobile-menu-link">
+                    <span class="text-2xl">🃏</span>
+                    <span class="text-xl">Расклады</span>
+                </a>
+                <a href="#reviews" class="mobile-menu-item flex items-center space-x-4 p-4 rounded-xl hover:bg-rose-900/20 transition-all mobile-menu-link">
+                    <span class="text-2xl">⭐</span>
+                    <span class="text-xl">Отзывы</span>
+                </a>
+                <a href="#contact" class="mobile-menu-item flex items-center space-x-4 p-4 rounded-xl hover:bg-rose-900/20 transition-all mobile-menu-link">
+                    <span class="text-2xl">📱</span>
+                    <span class="text-xl">Связь</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <!-- Оптимизация героической секции для мобильных -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden mobile-hero">
+        <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-rose-950"></div>
+        
+        <!-- Floating Cards Background -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="floating-card absolute top-20 left-10 w-16 h-24 bg-rose-900/30 rounded-lg float-animation" style="animation-delay: 0s;"></div>
+            <div class="floating-card absolute top-40 right-20 w-12 h-18 bg-pink-900/30 rounded-lg float-animation" style="animation-delay: 2s;"></div>
+            <div class="floating-card absolute bottom-40 left-20 w-14 h-20 bg-rose-800/30 rounded-lg float-animation" style="animation-delay: 4s;"></div>
+            <div class="floating-card absolute bottom-20 right-10 w-18 h-26 bg-pink-800/30 rounded-lg float-animation" style="animation-delay: 1s;"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <h1 class="text-4xl sm:text-5xl md:text-8xl font-bold mb-6 cinzel-font glow-animation mobile-hero-title">
+                <span class="text-rose-500">Ghost</span> 
+                <span class="text-white">Tarot</span>
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl mb-8 text-gray-300 crimson-font mobile-hero-subtitle">
+                Раскройте тайны судьбы через древнее искусство карт Таро
+            </p>
+            <div class="space-y-3 sm:space-y-4 md:space-y-0 md:space-x-6 md:flex md:justify-center">
+                <button onclick="scrollToSection('services')" class="block w-full sm:w-auto md:w-auto bg-rose-600 hover:bg-rose-700 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold transition-all transform hover:scale-105 glow-animation mobile-cta-button">
+                    Заказать расклад
+                </button>
+                <button onclick="scrollToSection('about')" class="block w-full sm:w-auto md:w-auto border border-rose-500 hover:bg-rose-500/20 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold transition-all mobile-cta-button">
+                    Узнать больше
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Tarot Section -->
+    <section id="about" class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 cinzel-font text-rose-400">
+                    Что такое Таро?
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto crimson-font">
+                    Таро — это древняя система гадания, которая помогает понять настоящее, заглянуть в будущее и найти ответы на важные вопросы жизни
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800/50 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/50 transition-all transform hover:scale-105 mystical-card">
+                    <div class="text-4xl mb-4 text-rose-400">🔮</div>
+                    <h3 class="text-2xl font-bold mb-4 cinzel-font text-rose-300">Древняя мудрость</h3>
+                    <p class="text-gray-300 crimson-font">
+                        Карты Таро существуют уже более 600 лет, накапливая в себе мудрость поколений и архетипы человеческого опыта
+                    </p>
+                </div>
+
+                <div class="bg-gray-800/50 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/50 transition-all transform hover:scale-105 mystical-card">
+                    <div class="text-4xl mb-4 text-rose-400">✨</div>
+                    <h3 class="text-2xl font-bold mb-4 cinzel-font text-rose-300">Интуитивное познание</h3>
+                    <p class="text-gray-300 crimson-font">
+                        Таро работает через активацию интуиции и подсознания, помогая увидеть скрытые аспекты ситуации
+                    </p>
+                </div>
+
+                <div class="bg-gray-800/50 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/50 transition-all transform hover:scale-105 mystical-card">
+                    <div class="text-4xl mb-4 text-rose-400">🌙</div>
+                    <h3 class="text-2xl font-bold mb-4 cinzel-font text-rose-300">Путь к себе</h3>
+                    <p class="text-gray-300 crimson-font">
+                        Каждый расклад — это возможность лучше понять себя, свои желания, страхи и потенциал для роста
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 cinzel-font text-rose-400">
+                    Виды раскладов
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto crimson-font">
+                    Выберите расклад, который лучше всего подходит для вашего вопроса
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-gradient-to-br from-gray-800/70 to-rose-900/20 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/70 transition-all transform hover:scale-105 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-full -translate-y-16 translate-x-16"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4 cinzel-font text-rose-300">Расклад на день</h3>
+                        <p class="text-gray-300 mb-6 crimson-font">
+                            Узнайте, что готовит вам предстоящий день. Одна карта — ключ к пониманию энергий дня.
+                        </p>
+                        <div class="text-3xl font-bold text-rose-400 mb-4">500₽</div>
+                        <button onclick="openTelegram()" class="w-full bg-rose-600 hover:bg-rose-700 px-6 py-3 rounded-lg font-semibold transition-all">
+                            Заказать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card bg-gradient-to-br from-gray-800/70 to-rose-900/20 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/70 transition-all transform hover:scale-105 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-full -translate-y-16 translate-x-16"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4 cinzel-font text-rose-300">Любовный расклад</h3>
+                        <p class="text-gray-300 mb-6 crimson-font">
+                            Отношения, чувства, совместимость. Глубокий анализ любовной сферы жизни.
+                        </p>
+                        <div class="text-3xl font-bold text-rose-400 mb-4">1500₽</div>
+                        <button onclick="openTelegram()" class="w-full bg-rose-600 hover:bg-rose-700 px-6 py-3 rounded-lg font-semibold transition-all">
+                            Заказать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card bg-gradient-to-br from-gray-800/70 to-rose-900/20 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/70 transition-all transform hover:scale-105 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-full -translate-y-16 translate-x-16"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4 cinzel-font text-rose-300">Карьерный расклад</h3>
+                        <p class="text-gray-300 mb-6 crimson-font">
+                            Работа, финансы, профессиональное развитие. Найдите свой путь к успеху.
+                        </p>
+                        <div class="text-3xl font-bold text-rose-400 mb-4">1200₽</div>
+                        <button onclick="openTelegram()" class="w-full bg-rose-600 hover:bg-rose-700 px-6 py-3 rounded-lg font-semibold transition-all">
+                            Заказать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card bg-gradient-to-br from-gray-800/70 to-rose-900/20 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/70 transition-all transform hover:scale-105 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-full -translate-y-16 translate-x-16"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4 cinzel-font text-rose-300">Кельтский крест</h3>
+                        <p class="text-gray-300 mb-6 crimson-font">
+                            Полный анализ ситуации: прошлое, настоящее, будущее. Самый подробный расклад.
+                        </p>
+                        <div class="text-3xl font-bold text-rose-400 mb-4">2500₽</div>
+                        <button onclick="openTelegram()" class="w-full bg-rose-600 hover:bg-rose-700 px-6 py-3 rounded-lg font-semibold transition-all">
+                            Заказать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-card bg-gradient-to-br from-gray-800/70 to-rose-900/20 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/70 transition-all transform hover:scale-105 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-full -translate-y-16 translate-x-16"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4 cinzel-font text-rose-300">Годовой прогноз</h3>
+                        <p class="text-gray-300 mb-6 crimson-font">
+                            Что ждет вас в предстоящем году? 12 карт на каждый месяц с подробной интерпретацией.
+                        </p>
+                        <div class="text-3xl font-bold text-rose-400 mb-4">3500₽</div>
+                        <button onclick="openTelegram()" class="w-full bg-rose-600 hover:bg-rose-700 px-6 py-3 rounded-lg font-semibold transition-all">
+                            Заказать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card bg-gradient-to-br from-gray-800/70 to-rose-900/20 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/70 transition-all transform hover:scale-105 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-full -translate-y-16 translate-x-16"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4 cinzel-font text-rose-300">Индивидуальный расклад</h3>
+                        <p class="text-gray-300 mb-6 crimson-font">
+                            Персональный расклад под ваш конкретный вопрос. Уникальная схема для каждого клиента.
+                        </p>
+                        <div class="text-3xl font-bold text-rose-400 mb-4">2000₽</div>
+                        <button onclick="openTelegram()" class="w-full bg-rose-600 hover:bg-rose-700 px-6 py-3 rounded-lg font-semibold transition-all">
+                            Заказать
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 cinzel-font text-rose-400">
+                    Отзывы клиентов
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto crimson-font">
+                    Что говорят люди о наших раскладах
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="review-card bg-gray-800/50 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/50 transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-rose-600 rounded-full flex items-center justify-center text-white font-bold">А</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-rose-300">Анна</h4>
+                            <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 crimson-font">
+                        "Невероятно точный расклад на любовь! Все предсказания сбылись в течение месяца. Теперь обращаюсь только к Ghost Tarot."
+                    </p>
+                </div>
+
+                <div class="review-card bg-gray-800/50 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/50 transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-rose-600 rounded-full flex items-center justify-center text-white font-bold">М</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-rose-300">Михаил</h4>
+                            <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 crimson-font">
+                        "Кельтский крест помог мне принять важное решение в карьере. Подробная интерпретация и точные советы. Рекомендую!"
+                    </p>
+                </div>
+
+                <div class="review-card bg-gray-800/50 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/50 transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-rose-600 rounded-full flex items-center justify-center text-white font-bold">Е</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-rose-300">Елена</h4>
+                            <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 crimson-font">
+                        "Годовой прогноз оказался удивительно точным. Каждый месяц приносил именно то, что было предсказано в картах."
+                    </p>
+                </div>
+
+                <div class="review-card bg-gray-800/50 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/50 transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-rose-600 rounded-full flex items-center justify-center text-white font-bold">Д</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-rose-300">Дмитрий</h4>
+                            <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 crimson-font">
+                        "Профессиональный подход и глубокое понимание карт. Расклад на карьеру дал четкое направление для развития."
+                    </p>
+                </div>
+
+                <div class="review-card bg-gray-800/50 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/50 transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-rose-600 rounded-full flex items-center justify-center text-white font-bold">О</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-rose-300">Ольга</h4>
+                            <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 crimson-font">
+                        "Мистическая атмосфера и точные предсказания. Каждый расклад — это путешествие в глубины души."
+                    </p>
+                </div>
+
+                <div class="review-card bg-gray-800/50 p-8 rounded-xl border border-rose-900/30 hover:border-rose-500/50 transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-rose-600 rounded-full flex items-center justify-center text-white font-bold">С</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-rose-300">Светлана</h4>
+                            <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 crimson-font">
+                        "Индивидуальный расклад превзошел все ожидания. Получила ответы на все волнующие вопросы."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 cinzel-font text-rose-400">
+                    Связаться со мной
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto crimson-font">
+                    Готовы узнать, что готовит вам карты? Свяжитесь со мной для заказа расклада
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-gray-800/50 p-8 rounded-xl border border-rose-900/30 text-center">
+                    <div class="text-6xl mb-6">📱</div>
+                    <h3 class="text-2xl font-bold mb-4 cinzel-font text-rose-300">Telegram</h3>
+                    <p class="text-gray-300 mb-6 crimson-font">
+                        Самый быстрый способ связаться со мной и заказать расклад. Отвечаю в течение часа!
+                    </p>
+                    <button onclick="openTelegram()" class="bg-rose-600 hover:bg-rose-700 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 glow-animation">
+                        Написать в Telegram
+                    </button>
+                </div>
+
+                <!-- Social Media -->
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black border-t border-rose-900/30">
+        <div class="container mx-auto px-6 text-center">
+            <div class="text-3xl font-bold mb-4 cinzel-font text-rose-500">
+                👻 Ghost Tarot
+            </div>
+            <p class="text-gray-400 mb-6 crimson-font">
+                Раскройте тайны судьбы через древнее искусство карт Таро
+            </p>
+            <div class="text-sm text-gray-500">
+                © 2024 Ghost Tarot. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
